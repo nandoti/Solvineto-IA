@@ -1,24 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Loja de Carros - Chat Automático com IA
 
-## Getting Started
+Aplicação Next.js com interface de chat estilo WhatsApp integrada com n8n para atendimento automático de loja de carros.
 
-First, run the development server:
+## 🚀 Getting Started
+
+### 1. Instalar dependências
+
+```bash
+npm install
+```
+
+### 2. Configurar variáveis de ambiente
+
+Crie um arquivo `.env.local` na raiz do projeto:
+
+```env
+# URL do webhook do n8n (onde enviamos mensagens)
+N8N_WEBHOOK_URL=http://localhost:5678/webhook/chat
+
+# URL base da aplicação Next.js
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# URL do webhook que o n8n deve chamar (onde recebemos respostas)
+NEXT_PUBLIC_WEBHOOK_URL=http://localhost:3000/api/webhook/n8n
+```
+
+**Nota:** Você pode copiar o arquivo `env.example.txt` como base.
+
+### 3. Executar o servidor de desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000/autochat](http://localhost:3000/autochat) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📚 Documentação
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Documentação dos Endpoints da API](./docs/API_ENDPOINTS.md)
+- [Variáveis de Ambiente](./docs/ENV_VARIABLES.md)
+
+## 🏗️ Estrutura do Projeto
+
+- `/src/app/autochat` - Página principal do chat
+- `/src/app/api/chat` - Endpoint para enviar mensagens
+- `/src/app/api/webhook/n8n` - Endpoint para receber respostas do n8n
+- `/src/components/chat` - Componentes do chat
+- `/src/lib` - Utilitários e data access
 
 ## Learn More
 
