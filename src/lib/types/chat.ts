@@ -1,6 +1,6 @@
-export type MessageSender = 'user' | 'assistant';
+export type MessageSender = "user" | "assistant";
 
-export type MessageStatus = 'sending' | 'sent' | 'delivered' | 'error';
+export type MessageStatus = "sending" | "sent" | "delivered" | "error";
 
 export interface Message {
   id: string;
@@ -21,6 +21,7 @@ export interface ChatSession {
 export interface SendMessageRequest {
   sessionId: string;
   message: string;
+  phone: string;
 }
 
 export interface SendMessageResponse {
@@ -40,4 +41,3 @@ export interface ChatStatusResponse {
   response?: string;
   messageId?: string;
 }
-

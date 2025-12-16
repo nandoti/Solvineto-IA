@@ -14,7 +14,6 @@ export default function AutoChatPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Verifica se já existe uma sessão
     const savedSession = getSession();
     if (savedSession) {
       setSession({

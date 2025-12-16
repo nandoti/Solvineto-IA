@@ -35,7 +35,6 @@ export default function ChatInterface({
     setMessages(storedMessages);
   }, [sessionId]);
 
-  // Scroll inicial - useLayoutEffect garante execução após DOM atualizar
   useLayoutEffect(() => {
     if (isInitialLoad.current && messages.length > 0) {
       messagesEndRef.current?.scrollIntoView({ behavior: "instant" });
@@ -43,14 +42,12 @@ export default function ChatInterface({
     }
   }, [messages]);
 
-  // Mutation para enviar mensagem
   const sendMessageMutation = useMutation({
     mutationFn: async (messageText: string) => {
       const localMessageId = `msg-${Date.now()}-${Math.random()
         .toString(36)
         .substring(2, 11)}`;
 
-      // Cria mensagem do usuário
       const userMessage: Message = {
         id: localMessageId,
         text: messageText,
@@ -59,11 +56,9 @@ export default function ChatInterface({
         status: "sending",
       };
 
-      // Salva no estado e localStorage
       setMessages((prev) => [...prev, userMessage]);
       saveMessage(sessionId, userMessage);
 
-      // Envia para API
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
@@ -72,6 +67,7 @@ export default function ChatInterface({
         body: JSON.stringify({
           sessionId,
           message: messageText,
+          phone: phone,
         }),
         cache: "no-store",
       });
@@ -83,7 +79,6 @@ export default function ChatInterface({
       const data = await response.json();
       const apiMessageId = data.messageId || localMessageId;
 
-      // Atualiza status da mensagem
       updateMessageStatus(sessionId, localMessageId, "sent");
       setMessages((prev) =>
         prev.map((msg) =>
@@ -91,7 +86,6 @@ export default function ChatInterface({
         )
       );
 
-      // Define o messageId pendente para polling
       setPendingMessageId(apiMessageId);
 
       return apiMessageId;
@@ -115,7 +109,6 @@ export default function ChatInterface({
     },
   });
 
-  // Query para polling de respostas
   const { data: statusData } = useQuery({
     queryKey: ["chat-status", sessionId, pendingMessageId],
     queryFn: async () => {
@@ -141,7 +134,6 @@ export default function ChatInterface({
     refetchIntervalInBackground: true,
   });
 
-  // Quando recebe resposta do n8n
   useEffect(() => {
     if (statusData?.hasResponse && statusData.response) {
       const assistantMessage: Message = {
