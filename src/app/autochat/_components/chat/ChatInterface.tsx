@@ -183,9 +183,10 @@ export default function ChatInterface({
                 />
               </div>
             </div>
+
             <div>
               <h1 className="text-lg font-semibold">
-                ShowCar – Atendimento exclusivo
+                {process.env.NEXT_PUBLIC_NAME ?? ""} – Atendimento exclusivo
               </h1>
               <div className="flex items-center gap-2 text-xs text-green-200">
                 <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
