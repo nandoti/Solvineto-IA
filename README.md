@@ -15,6 +15,9 @@ npm install
 Crie um arquivo `.env.local` na raiz do projeto:
 
 ```env
+#Nome do projeto
+NEXT_PUBLIC_NAME="ShowCar"
+
 # URL do webhook do n8n (onde enviamos mensagens)
 N8N_WEBHOOK_URL=http://localhost:5678/webhook/chat
 

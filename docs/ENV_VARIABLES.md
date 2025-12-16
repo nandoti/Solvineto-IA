@@ -7,6 +7,9 @@ Este documento descreve as variáveis de ambiente necessárias para a aplicaçã
 Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
 
 ```env
+#Nome do projeto
+NEXT_PUBLIC_NAME="ShowCar"
+
 # URL do webhook do n8n para onde enviamos as mensagens do usuário
 # Esta é a URL do workflow do n8n que receberá as mensagens
 N8N_WEBHOOK_URL=https://seu-n8n.com/webhook/chat
