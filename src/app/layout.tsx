@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShowCar - Loja de Carros",
-  description: "Atendimento exclusivo",
+  title: "Consultor - Solvineto",
+  description: "Atendente da Sol Vinil",
 };
 
 export default function RootLayout({
