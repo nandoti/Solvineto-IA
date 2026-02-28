@@ -1,6 +1,6 @@
-# Loja de Carros - Chat Automático com IA
+# Solvineto - Chat Automático com IA
 
-Aplicação Next.js com interface de chat estilo WhatsApp integrada com n8n para atendimento automático de loja de carros.
+Aplicação Next.js com interface de chat estilo WhatsApp integrada com n8n para atendimento automático de loja.
 
 ## 🚀 Getting Started
 
@@ -16,7 +16,7 @@ Crie um arquivo `.env.local` na raiz do projeto:
 
 ```env
 #Nome do projeto
-NEXT_PUBLIC_NAME="ShowCar"
+NEXT_PUBLIC_NAME="Solvineto"
 
 # URL do webhook do n8n (onde enviamos mensagens)
 N8N_WEBHOOK_URL=http://localhost:5678/webhook/chat
