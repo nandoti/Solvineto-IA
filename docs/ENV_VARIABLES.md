@@ -8,7 +8,7 @@ Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
 
 ```env
 #Nome do projeto
-NEXT_PUBLIC_NAME="ShowCar"
+NEXT_PUBLIC_NAME="Solvineto"
 
 # URL do webhook do n8n para onde enviamos as mensagens do usuário
 # Esta é a URL do workflow do n8n que receberá as mensagens
